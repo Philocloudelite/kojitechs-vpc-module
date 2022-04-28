@@ -30,7 +30,7 @@ variable "cidr_pubsubnet" {
   description = "list of public cidrs"
 }
 
-variable "pub_aavailability_zone[" {
+variable "pub_aavailability_zone" {
   type        = string
   description = "provide the aavailability_zone for pub subnet["
 }
