@@ -3,7 +3,6 @@
 locals {
   vpc_id     = try(aws_vpc.Kojitechs[0].id, "")
   create_vpc = var.create_vpc
-  azs        = data.aws_availability_zones.available.names
 }
 
 
@@ -87,13 +86,13 @@ resource "aws_route_table_association" "route_tables_ass" {
 
 # creating the default route table
 resource "aws_default_route_table" "default_route" {
-  count = local.create_vpc ? 1 : 0
+  count = (local.create_vpc && var.enable_natgateway)? 1 : 0
 
   default_route_table_id = try(aws_vpc.Kojitechs[0].default_route_table_id, "")
 
   route {
     cidr_block     = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.ngw_1[0].id
+    nat_gateway_id = try(aws_nat_gateway.ngw_1[0].id, "")
   }
 }
 
