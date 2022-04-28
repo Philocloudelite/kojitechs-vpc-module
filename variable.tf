@@ -11,7 +11,7 @@ variable "dns_support" {
   default = null
 }
 
-variable "anable_dns_gostname" {
+variable "enable_dns_hostname" {
   type        = bool
   description = "anable dns host name"
   default = null
