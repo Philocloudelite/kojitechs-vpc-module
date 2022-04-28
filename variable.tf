@@ -31,12 +31,12 @@ variable "cidr_pubsubnet" {
 }
 
 variable "pub_aavailability_zone" {
-  type        = string
+  type        = list
   description = "provide the aavailability_zone for pub subnet["
 }
 
 variable "priv_availability_zone" {
-  type        = string
+  type        = list(any)
   description = "provide the aavailability_zone for priv subnet"
 }
 
@@ -47,7 +47,7 @@ variable "cidr_database" {
 }
 
 variable "database_availability_zone" {
-  type        = string
+  type        = list
   description = "provide the aavailability_zone for database subnet"
 }
 
