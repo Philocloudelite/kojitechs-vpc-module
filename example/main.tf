@@ -1,16 +1,10 @@
-# kojitechs-vpc-module
 
-## Usage 
+provider "aws" {
+    region = "us-east-1"
+    profile = "default"
+}
 
-## Description
-To use this module get the following blog
 
-## Module
-
-## Note
-this is for ssh: "git::git@https://github.com/Philocloudelite/kojitechs-vpc-module.git"
-
-```hcl
 module vpc {
     source = "git::https://github.com/Philocloudelite/kojitechs-vpc-module.git"
 
@@ -24,4 +18,3 @@ module vpc {
     enable_natgateway = true
 
 }
-```
