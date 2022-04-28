@@ -44,12 +44,11 @@ resource "aws_subnet" "priv_sub" {
 
   vpc_id                  = local.vpc_id
   cidr_block              = var.cidr_privsubnet[count.index]
-  availability_zone       = [var.priv_avalaibility_zone.count.index]
+  availability_zone       = var.priv_avalaibility_zone[count.index]
 
   tags = {
-    "Name" = "priva-sub-${var.priv_avalaibility_zone.[count.index]}"
+    "Name" = "priv-sub-${var.priv_avalaibility_zone[count.index]}"
   }
-
 }
 
 # creating dababase subnet
