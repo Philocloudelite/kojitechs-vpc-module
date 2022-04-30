@@ -24,20 +24,25 @@ variable "aws_region" {
   description = "aws region"
 }
 
+variable "cidr_privsubnet" {
+  type        = list(any)
+  description = "list of private cidrs"
+}
+
 
 variable "cidr_pubsubnet" {
   type        = list(any)
   description = "list of public cidrs"
 }
 
-variable "pub_aavailability_zone" {
+variable "pub_availability_zone" {
   type        = list
-  description = "provide the aavailability_zone for pub subnet["
+  description = "provide the availability_zone for pub subnet["
 }
 
 variable "priv_availability_zone" {
   type        = list(any)
-  description = "provide the aavailability_zone for priv subnet"
+  description = "provide the availability_zone for priv subnet"
 }
 
 

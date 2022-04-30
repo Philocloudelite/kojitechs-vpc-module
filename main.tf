@@ -13,7 +13,7 @@ resource "aws_vpc" "Kojitechs" {
 
   cidr_block           = var.vpc_cidr
   enable_dns_support   = var.dns_support
-  enable_dns_hostname = var.enable_dns_hostname
+  enable_dns_hostnames = var.enable_dns_hostname
 
 }
 
@@ -31,7 +31,7 @@ resource "aws_subnet" "public_subnet" {
   vpc_id                  = local.vpc_id
   cidr_block              = var.cidr_pubsubnet[count.index]
   map_public_ip_on_launch = true
-  availability_zone       = var.pub_aavailability_zone[count.index]
+  availability_zone       = var.pub_availability_zone[count.index]
 
   tags = {
     "Name" = "public_subnet_${count.index + 1}"
@@ -44,10 +44,10 @@ resource "aws_subnet" "priv_sub" {
 
   vpc_id                  = local.vpc_id
   cidr_block              = var.cidr_privsubnet[count.index]
-  availability_zone       = var.priv_avalaibility_zone[count.index]
+  availability_zone       = var.priv_availability_zone[count.index]
 
   tags = {
-    "Name" = "priv-sub-${var.priv_avalaibility_zone[count.index]}"
+    "Name" = "priv-sub-${var.priv_availability_zone[count.index]}"
   }
 }
 
